@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Lab 1</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+<div class="wrapper">
+    <header class="introduction">
+        <p>P3210 Рябикин Илья Леонидович - Вариант 210020</p>
+    </header>
+    <form id="parameters_form" action="scripts/response.php" method="GET"></form>
+    <table class="document">
+        <tr>
+            <td colspan="3">
+                <h1>Проверка попадания точек в области графика</h1>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <img src="images/areas.png" alt="Координатная плоскость с областями">
+            </td>
+        </tr>
+        <tr>
+            <td class="parameter_choose">
+                <label for="x_coordinate">Выберите координату X:</label>
+            </td>
+            <td class="parameter_choose">
+                <label for="y_coordinate">Введите координату Y:</label>
+            </td>
+            <td class="parameter_choose">
+                <label for="radius">Выберите радиус:</label>
+            </td>
+        </tr>
+        <tr>
+            <td class="parameter_choose">
+                <select name="x_coordinate" id="x_coordinate" form="parameters_form" required>
+                    <option disabled selected value="">Координата X</option>
+                    <option value="-4">-4</option>
+                    <option value="-3">-3</option>
+                    <option value="-2">-2</option>
+                    <option value="-1">-1</option>
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                </select>
+            </td>
+            <td class="parameter_choose">
+                <input id="y_coordinate" class="" name="y_coordinate" type="text" autocomplete="off"
+                       placeholder="Координата Y (от -5 до 3)" form="parameters_form" required>
+            </td>
+            <td class="parameter_choose">
+                <select name="radius" id="radius" form="parameters_form" required>
+                    <option disabled selected value="">Радиус</option>
+                    <option value="1">1</option>
+                    <option value="1.5">1.5</option>
+                    <option value="2">2</option>
+                    <option value="2.5">2.5</option>
+                    <option value="3">3</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <button form="parameters_form" id="submit_parameters">Проверить</button>
+                <script src="scripts/validation.js"></script>
+            </td>
+        </tr>
+    </table>
+</div>
+<footer>
+    <p>Anti-patterns in action&copy;</p>
+</footer>
+</body>
+</html>
