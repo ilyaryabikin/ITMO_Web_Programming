@@ -1,0 +1,129 @@
+<p-toast position="top-right"></p-toast>
+<form #pointForm="ngForm" (ngSubmit)="savePoint(pointForm)">
+  <div class="p-grid p-justify-center" ngModelGroup="point">
+    <div class="x-group p-grid p-col-12 p-md-4 p-justify-between">
+      <div class="p-col-12 p-col-align-start grid-label">
+        <label>Выберите координату X</label>
+      </div>
+      <div class="p-col-2 grid-item">
+        <p-checkbox (onChange)="changeX()" [(ngModel)]="xSelected"
+                    label="-3" name="xCoordinate" required
+                    value="-3" #xCoord="ngModel"></p-checkbox>
+      </div>
+      <div class="p-col-2 grid-item">
+        <p-checkbox (onChange)="changeX()" [(ngModel)]="xSelected"
+                    label="-2" name="xCoordinate" required
+                    value="-2" #xCoord="ngModel"></p-checkbox>
+      </div>
+      <div class="p-col-2 grid-item">
+        <p-checkbox (onChange)="changeX()" [(ngModel)]="xSelected"
+                    label="-1" name="xCoordinate" required
+                    value="-1" #xCoord="ngModel"></p-checkbox>
+      </div>
+      <div class="p-col-2 grid-item">
+        <p-checkbox (onChange)="changeX()" [(ngModel)]="xSelected"
+                     label=" 0" name="xCoordinate" required
+                    value="0" #xCoord="ngModel"></p-checkbox>
+      </div>
+      <div class="p-col-2 grid-item">
+        <p-checkbox (onChange)="changeX()" [(ngModel)]="xSelected"
+                    label=" 1" name="xCoordinate" required
+                    value="1" #xCoord="ngModel"></p-checkbox>
+      </div>
+      <div class="p-col-3 grid-item">
+        <p-checkbox (onChange)="changeX()" [(ngModel)]="xSelected"
+                   label="2" name="xCoordinate" required
+                    value="2" #xCoord="ngModel"></p-checkbox>
+      </div>
+      <div class="p-col-3 grid-item">
+        <p-checkbox (onChange)="changeX()" [(ngModel)]="xSelected"
+                    label="3" name="xCoordinate" required
+                    value="3" #xCoord="ngModel"></p-checkbox>
+      </div>
+      <div class="p-col-3 grid-item">
+        <p-checkbox (onChange)="changeX()" [(ngModel)]="xSelected"
+                    label="4" name="xCoordinate" required
+                    value="4" #xCoord="ngModel"></p-checkbox>
+      </div>
+      <div class="p-col-3 grid-item">
+        <p-checkbox (onChange)="changeX()" [(ngModel)]="xSelected"
+                    label="5" name="xCoordinate" required
+                    value="5" #xCoord="ngModel"></p-checkbox>
+      </div>
+    </div>
+
+    <div class="y-group p-grid p-col-12 p-md-4">
+      <div class="p-col-12 p-col-align-start grid-label">
+        <label for="y-coordinate">Введите координату Y</label>
+      </div>
+      <div class="p-col-12 grid-item">
+        <input [(ngModel)]="point.yCoordinate" autocomplete="false" id="y-coordinate" name="yCoordinate" pInputText
+               placeholder="Координата Y (от -3 до 3)" type="text" required min="-3" max="3" maxlength="14" pattern="^[-+]?[0-9]*[.,]?[0-9]+(?:[eE][-+]?[0-9]+)?"
+               #yCoord="ngModel">
+      </div>
+    </div>
+
+    <div class="radius-group p-grid p-col-12 p-md-4 p-justify-between">
+      <div class="p-col-12 p-col-align-start grid-label">
+        <label>Выберите радиус</label>
+      </div>
+      <div class="p-col-2 grid-item">
+        <p-checkbox (onChange)="changeRadius()" [(ngModel)]="radiusSelected"
+                    label="-3" name="radius" value="-3" required
+                    #rad="ngModel"></p-checkbox>
+      </div>
+      <div class="p-col-2 grid-item">
+        <p-checkbox (onChange)="changeRadius()" [(ngModel)]="radiusSelected"
+                    label="-2" name="radius" value="-2" required
+                    #rad="ngModel"></p-checkbox>
+      </div>
+      <div class="p-col-2 grid-item">
+        <p-checkbox (onChange)="changeRadius()" [(ngModel)]="radiusSelected"
+                    label="-1" name="radius" value="-1" required
+                    #rad="ngModel"></p-checkbox>
+      </div>
+      <div class="p-col-2 grid-item">
+        <p-checkbox (onChange)="changeRadius()" [(ngModel)]="radiusSelected"
+                    label=" 0" name="radius" value="0" required
+                    #rad="ngModel"></p-checkbox>
+      </div>
+      <div class="p-col-2 grid-item">
+        <p-checkbox (onChange)="changeRadius()" [(ngModel)]="radiusSelected"
+                    label=" 1" name="radius" value="1" required
+                    #rad="ngModel"></p-checkbox>
+      </div>
+      <div class="p-col-3 grid-item">
+        <p-checkbox (onChange)="changeRadius()" [(ngModel)]="radiusSelected"
+                    label="2" name="radius" value="2" required
+                    #rad="ngModel"></p-checkbox>
+      </div>
+      <div class="p-col-3 grid-item">
+        <p-checkbox (onChange)="changeRadius()" [(ngModel)]="radiusSelected"
+                    label="3" name="radius" value="3" required
+                    #rad="ngModel"></p-checkbox>
+      </div>
+      <div class="p-col-3 grid-item">
+        <p-checkbox (onChange)="changeRadius()" [(ngModel)]="radiusSelected"
+                    label="4" name="radius" value="4" required
+                    #rad="ngModel"></p-checkbox>
+      </div>
+      <div class="p-col-3 grid-item">
+        <p-checkbox (onChange)="changeRadius()" [(ngModel)]="radiusSelected"
+                    label="5" name="radius" value="5" required
+                    #rad="ngModel"></p-checkbox>
+      </div>
+    </div>
+
+    <div class="p-grid p-justify-between">
+      <div class="p-col-6 btn-submit">
+        <button icon="pi pi-plus" iconPos="right" label="Проверить" pButton type="submit"></button>
+      </div>
+      <div class="p-col-6 btn-delete">
+        <button icon="pi pi-times" iconPos="right" label="Очистить" pButton type="button" (click)="deleteAllPoints()"></button>
+      </div>
+      <div class="p-col-12 grid-item">
+        <button icon="pi pi-arrow-left" label="Выйти" pButton type="button" (click)="logout()" routerLink="../login"></button>
+      </div>
+    </div>
+  </div>
+</form>

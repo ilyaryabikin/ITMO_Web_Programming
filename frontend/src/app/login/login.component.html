@@ -1,0 +1,27 @@
+<p-toast position="top-right"></p-toast>
+<form #authForm="ngForm" (ngSubmit)="login(authForm)">
+<div class="p-grid p-align-center p-justify-center">
+  <div class="p-col-7">
+    <h4 class="grid-item">Авторизация</h4>
+
+    <div class="ui-inputgroup grid-item">
+      <span class="ui-inputgroup-addon"><i class="pi pi-user" style="line-height: 1.25;"></i></span>
+      <input type="text" required name="username" [ngModel]="username" pInputText placeholder="Имя пользователя">
+    </div>
+
+    <div class="ui-inputgroup grid-item">
+      <span class="ui-inputgroup-addon"><i class="pi pi-key" style="line-height: 1.25;"></i></span>
+      <input type="password" required minlength="6" name="password" [(ngModel)]="password" pPassword [feedback]="false" promptLabel="Введите пароль" placeholder="Пароль">
+    </div>
+
+    <div class="p-grid p-justify-center">
+      <div class="p-col-7 btn-register">
+        <button type="button" pButton label="Регистрация" (click)="register(authForm)" icon="pi pi-user-plus"></button>
+      </div>
+      <div class="p-col-7 btn-login">
+        <button type="submit" pButton label="Войти" icon="pi pi-arrow-right"></button>
+      </div>
+    </div>
+  </div>
+</div>
+</form>

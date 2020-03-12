@@ -1,0 +1,22 @@
+<p-table [scrollable]="true" scrollHeight="170px" [value]="points">
+  <ng-template pTemplate="caption">
+    Список точек
+  </ng-template>
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Координата X</th>
+      <th>Координата Y</th>
+      <th>Радиус</th>
+      <th>Попадание</th>
+    </tr>
+
+  </ng-template>
+  <ng-template pTemplate="body" let-point>
+    <tr>
+      <td>{{point.xCoordinate}}</td>
+      <td>{{point.yCoordinate}}</td>
+      <td>{{point.radius}}</td>
+      <td>{{point.inside | booleanToText}}</td>
+    </tr>
+  </ng-template>
+</p-table>

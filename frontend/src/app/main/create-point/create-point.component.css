@@ -1,0 +1,23 @@
+.grid-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.grid-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-submit {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.btn-delete {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}

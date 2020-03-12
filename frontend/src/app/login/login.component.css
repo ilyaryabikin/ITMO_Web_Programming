@@ -1,0 +1,19 @@
+.grid-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.btn-login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-register {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
