@@ -1,4 +1,3 @@
-# Laboratory work #1
 ## Task
 ![Related picture](images/areas.png)
 
