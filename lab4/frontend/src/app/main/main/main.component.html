@@ -1,0 +1,14 @@
+<div class="p-grid p-justify-around">
+  <div class="p-col-12 p-md-6 p-lg-4 grid-item">
+    <app-canvas-item [scaleParameter]="scaleParameter" [points]="points"
+                      (updatePoints)="updatePoints($event)"></app-canvas-item>
+  </div>
+  <div class="p-col-11 p-md-8 p-lg-7">
+    <app-table-item [points]="points"></app-table-item>
+  </div>
+  <div class="p-col-8 p-md-11">
+    <app-create-point (radiusChange)="changeScaleParameter($event)"
+                      (deletePoints)="deletePoints($event)"
+                      (updatePoints)="updatePoints($event)"></app-create-point>
+  </div>
+</div>

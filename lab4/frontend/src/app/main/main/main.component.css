@@ -1,0 +1,11 @@
+.grid-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.grid-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
