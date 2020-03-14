@@ -1,0 +1,90 @@
+html {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+header {
+    color: #EEEEEE;
+    font-family: cursive;
+    text-align: center;
+    background-color: #333333;
+    background-image: url("../images/company_logo.png");
+    background-repeat: no-repeat;
+    background-position: 5% 50%;
+    background-size: 35px 37px;
+    height: 40px;
+}
+
+header p {
+    position: relative;
+    bottom: -20%;
+}
+
+table.document {
+    margin: auto;
+    text-align: center;
+}
+
+h1 {
+    text-align: center;
+}
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.parameter_choose {
+    width: 241px;
+}
+
+select {
+    width: 130px;
+}
+
+input {
+    width: 160px;
+}
+
+input.invalid {
+    border-color: #900;
+    background-color: #FDD;
+}
+
+input:focus.invalid {
+    outline: none;
+}
+
+button {
+    vertical-align: bottom;
+}
+
+table#results {
+    border: 3px solid #333333;
+    border-collapse: collapse;
+    margin: auto;
+    text-align: center;
+}
+
+#results td {
+    border: 2px solid lightgray;
+}
+
+footer {
+    font-family: cursive;
+    color: #EEEEEE;
+    text-align: center;
+    background-color: #333333;
+    height: 40px;
+}
+
+footer p {
+    font-size: 12px;
+    position: relative;
+    bottom: -20%;
+}
+
+/*Прижатый к низу footer:*/
+.wrapper {
+    min-height: calc(100vh - 80px);
+}
