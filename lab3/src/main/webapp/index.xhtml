@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <title>Стартовая страница</title>
+    <h:outputStylesheet name="css/primeflex.css"/>
+    <h:outputStylesheet name="css/custom.css"/>
+</h:head>
+<h:body>
+    <header>
+        <div class="p-grid p-justify-center">
+            <div class="p-col-8 p-align-center" align="center">
+                <h3>P3210 Рябикин Илья - Вариант 82189</h3>
+            </div>
+        </div>
+    </header>
+
+    <div class="p-grid p-justify-center">
+        <div class="p-col-8 p-align-center">
+            <p:panel header="Текущее время" style="text-align: center;">
+                <h:form>
+                    <h:outputText id="show-date" value="#{date.currentDate}"/>
+                    <p:poll interval="7" listener="#{date.updateDate}" update="show-date"/>
+                </h:form>
+            </p:panel>
+        </div>
+        <div class="p-col-6 p-align-center" align="center">
+            <p:linkButton style="width: 180px;" outcome="main" value="Перейти к главной странице"
+                          icon="fa fa-fw fa-arrow-right"/>
+        </div>
+    </div>
+
+</h:body>
+</html>

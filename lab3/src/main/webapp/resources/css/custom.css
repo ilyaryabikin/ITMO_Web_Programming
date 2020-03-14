@@ -1,0 +1,15 @@
+html {
+    font-family: "Open Sans","Helvetica Neue",sans-serif;
+}
+
+.p-col {
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+header {
+    background-color: #333333;
+    width: 100%;
+    color: white;
+    margin-bottom: 20px;
+}

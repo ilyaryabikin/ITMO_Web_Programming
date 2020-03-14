@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <title>Главная страница</title>
+    <h:outputStylesheet name="css/primeflex.css"/>
+    <h:outputStylesheet name="css/custom.css"/>
+
+</h:head>
+<h:body>
+    <header>
+        <div class="p-grid p-justify-center">
+            <div class="p-col-8 p-align-center" align="center">
+                <h3>P3210 Рябикин Илья - Вариант 82189</h3>
+            </div>
+        </div>
+    </header>
+
+    <div class="p-grid p-justify-between">
+        <div class="p-col-4 p-align-center" align="center">
+            <canvas id="graph" width="300" height="300"/>
+        </div>
+        <div class="p-col-8 p-align-center">
+            <p:dataTable id="points-table" value="#{pointManager.allPoints}" var="point" scrollable="true"
+                         rowHover="true" emptyMessage="Данные отсутствуют" scrollHeight="200">
+                <f:facet name="header">Список точек</f:facet>
+
+                <p:column headerText="Координата X">
+                    <h:outputText value="#{point.XCoordinate}"/>
+                </p:column>
+
+                <p:column headerText="Координата Y">
+                    <h:outputText value="#{point.YCoordinate}"/>
+                </p:column>
+
+                <p:column headerText="Радиус">
+                    <h:outputText value="#{point.radius}"/>
+                </p:column>
+
+                <p:column headerText="Попадание">
+                    <h:outputText value="#{point.inside}">
+                        <f:converter converterId="booleanConverter"/>
+                    </h:outputText>
+                </p:column>
+            </p:dataTable>
+        </div>
+    </div>
+
+    <h:form id="submit-form">
+        <div class="p-grid p-justify-around">
+            <div class="p-col-4 p-align-stretch" align="center">
+                <p:outputLabel for="x-coordinate">Выберите координату X</p:outputLabel><br/>
+                <h:outputText id="output-x" value="#{pointManager.XCoordinate}"/><br/>
+                <h:inputHidden id="x-coordinate" value="#{pointManager.XCoordinate}">
+                    <f:validator validatorId="xDataValidator"/>
+                </h:inputHidden>
+                <p:slider for="x-coordinate" minValue="-5" maxValue="5" step="1" display="output-x"
+                          style="width: 200px; margin-top: 10px;"/>
+                <p:message for="x-coordinate" style="margin-top: 7px"/>
+            </div>
+
+            <div class="p-col-4 p-align-center" align="center">
+                <p:outputLabel for="y-coordinate">Введите координату Y</p:outputLabel><br/>
+                <p:inputText id="y-coordinate" value="#{pointManager.YCoordinate}" style="margin-top: 10px;"
+                             maxlength="15" placeholder="от -3 до 5">
+                        <f:validator validatorId="yDataValidator"/>
+                </p:inputText><br/>
+                <p:message for="y-coordinate" display="default"/>
+            </div>
+
+            <div class="p-col-4 p-align-stretch" align="center">
+                <p:outputLabel for="radius">Выберите радиус</p:outputLabel><br/>
+                <h:outputText id="output-radius" value="#{pointManager.radius}"/><br/>
+                <h:inputHidden id="radius" value="#{pointManager.radius}"/>
+                <p:slider id="radius-slider" for="radius" minValue="1" maxValue="4" step="0.5" display="output-radius"
+                          onSlide="handleSlide(event, ui)" style="width: 200px; margin-top: 10px;"/>
+            </div>
+
+            <div class="p-col-8" align="center">
+                <p:linkButton style="width: 130px;" outcome="index" value="Вернуться"
+                              icon="fa fa-fw fa-arrow-left"/>
+                <p:commandButton style="width: 130px;" styleClass="submit-coordinate" type="submit" value="Проверить"
+                                 action="#{pointManager.savePoint}" update="@form points-table ugly-function"
+                                 icon="fa fa-fw fa-plus"/>
+            </div>
+        </div>
+    </h:form>
+
+    <h:form id="delete-form">
+        <div class="p-grid p-justify-center">
+            <div class="p-col-8" align="center">
+        <p:commandButton style="width: 130px;" value="Очистить" action="#{pointManager.deleteAllPoints}"
+                         type="submit" update="@form points-table ugly-function" icon="fa fa-fw fa-remove"/>
+            </div>
+        </div>
+    </h:form>
+
+    <h:outputScript name="js/graph-render.js"/>
+    <h:outputScript name="js/click-submit.js"/>
+    <h:outputScript name="js/scale-set.js"/>
+    <h:outputScript name="js/click-render.js"/>
+    <p:panel id="ugly-function" visible="false">
+        <h:outputScript>
+            function handleSlide(event, ui) {
+                radius = ui.value;
+                setPlaneScale(ui.value);
+            <ui:repeat value="#{pointManager.allPoints}" var="point">
+                drawClick("#{point.XCoordinate}", "#{point.YCoordinate}", "#{point.radius}", "#{point.inside}");
+            </ui:repeat>
+            }
+
+            window.addEventListener('load', function(event) {
+                setPlaneScale("${pointManager.radius}");
+            <ui:repeat value="#{pointManager.allPoints}" var="point">
+                drawClick("#{point.XCoordinate}", "#{point.YCoordinate}", "#{point.radius}", "#{point.inside}");
+            </ui:repeat>
+            });
+
+            setPlaneScale(radius);
+            <ui:repeat value="#{pointManager.allPoints}" var="point">
+                drawClick("#{point.XCoordinate}", "#{point.YCoordinate}", "#{point.radius}", "#{point.inside}");
+            </ui:repeat>
+        </h:outputScript>
+    </p:panel>
+
+</h:body>
+</html>
