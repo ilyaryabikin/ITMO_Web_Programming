@@ -6,7 +6,7 @@ import {tap} from 'rxjs/operators';
 @Injectable()
 export class AuthService {
 
-  private apiUrl = 'http://localhost:16680/backend/api/';
+  private apiUrl = 'http://localhost:16680/api/';
   public isLoggedIn = false;
   public redirectUrl: string;
 

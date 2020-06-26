@@ -6,7 +6,7 @@ import {Point} from '../model/point';
 @Injectable()
 export class PointService {
 
-  private apiUrl = 'http://localhost:16680/backend/api/points';
+  private apiUrl = 'http://localhost:16680/api/points';
 
   constructor(private http: HttpClient) { }
 
